@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Parede1",
+  "%Name":"Obj_Parede1",
   "eventList":[],
   "managed":true,
-  "name":"obj_Parede1",
+  "name":"Obj_Parede1",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"spr_Parede1",
-    "path":"sprites/spr_Parede1/spr_Parede1.yy",
+    "name":"Spr_Parede1",
+    "path":"sprites/Spr_Parede1/Spr_Parede1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

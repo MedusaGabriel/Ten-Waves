@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Arvore",
+  "%Name":"Obj_Arvore",
   "eventList":[],
   "managed":true,
-  "name":"obj_Arvore",
+  "name":"Obj_Arvore",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"spr_Arvore",
-    "path":"sprites/spr_Arvore/spr_Arvore.yy",
+    "name":"Spr_Arvore",
+    "path":"sprites/Spr_Arvore/Spr_Arvore.yy",
   },
   "spriteMaskId":null,
   "visible":true,

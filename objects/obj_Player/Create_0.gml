@@ -1,7 +1,7 @@
 #region VARIAVEIS
 
-spd = 4;
-
+spd = 1.9;
+life = 100;
 
 #endregion
 

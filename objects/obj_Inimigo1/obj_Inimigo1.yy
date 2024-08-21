@@ -1,17 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Inimigo1",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"Obj_Inimigo1",
+  "eventList":[],
   "managed":true,
-  "name":"obj_Inimigo1",
+  "name":"Obj_Inimigo1",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
     "path":"folders/Objetos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_InimigosFase1",
+    "path":"objects/Obj_InimigosFase1/Obj_InimigosFase1.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_Inimigo1",
-    "path":"sprites/spr_Inimigo1/spr_Inimigo1.yy",
+    "name":"Spr_Inimigo1",
+    "path":"sprites/Spr_Inimigo1/Spr_Inimigo1.yy",
   },
   "spriteMaskId":null,
   "visible":true,

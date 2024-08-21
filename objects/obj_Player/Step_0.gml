@@ -37,7 +37,6 @@ if (keyboard_check(vk_right) && place_free(x + spd, y)) {
 
 camera_set_view_pos(view_camera[0], x - view_wport[0]/2, y - view_hport[0]/2);
 depth = -y;
-
 // Diminui a escala do personagem em 50% (metade do tamanho original)
 image_xscale = 0.5;
 image_yscale = 0.5;
