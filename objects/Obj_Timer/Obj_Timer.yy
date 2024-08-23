@@ -1,16 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_Timer",
+  "%Name":"obj_timer",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_Timer",
+  "name":"obj_timer",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Enemys",
+    "path":"folders/Objetos/Enemys.yy",
   },
   "parentObjectId":null,
   "persistent":false,

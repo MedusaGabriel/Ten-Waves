@@ -1,4 +1,4 @@
-var life = Obj_Player.life;
+var life = obj_player.life;
 
 var xx =20;
 var yy =20;

@@ -4,11 +4,11 @@
 var inimigos_count = 0;
 
 // Loop para contar instâncias de todos os inimigos filhos de obj_InimigosFase1
-for (var i = 0; i < instance_number(Obj_InimigosFase1); i++) {
-    var obj = instance_find(Obj_InimigosFase1, i);
+for (var i = 0; i < instance_number(obj_enemylevelone); i++) {
+    var obj = instance_find(obj_enemylevelone, i);
     if (instance_exists(obj)) {
         // Verifica se a instância é um inimigo filho
-        if (obj.object_index == Obj_Inimigo1 || obj.object_index == Obj_Inimigo2) {
+        if (obj.object_index == obj_enemy || obj.object_index == obj_enemy2) {
             inimigos_count += 1;
         }
     }
@@ -17,7 +17,7 @@ for (var i = 0; i < instance_number(Obj_InimigosFase1); i++) {
 // Verifica se o número total de instâncias de inimigos é menor que 5
 if (inimigos_count < 5) {
     // Escolhe aleatoriamente um dos inimigos filhos de obj_InimigosFase1
-    var inimigo_aleatorio = choose(Obj_Inimigo1, Obj_Inimigo2);  // Adicione mais se necessário
+    var inimigo_aleatorio = choose(obj_enemy, obj_enemy2);  // Adicione mais se necessário
 
     // Cria o inimigo escolhido em uma posição aleatória na room
     instance_create_depth(irandom_range(32, room_width - 32), irandom_range(32, room_height - 32), -1, inimigo_aleatorio);

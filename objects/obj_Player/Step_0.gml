@@ -42,3 +42,60 @@ image_xscale = 0.5;
 image_yscale = 0.5;
 
 #endregion
+
+
+#region DANO / GAMER OVER
+
+// Reduz o tempo de espera para o próximo dano
+if (wait_hurt > 0) {
+    wait_hurt -= 1;
+}
+
+// Reduz o tempo de invulnerabilidade
+if (invecible) {
+    time_invencible -= 1;
+    
+    // Se o tempo de invulnerabilidade acabar, desativa a invulnerabilidade
+    if (time_invencible <= 0) {
+        invecible = false;
+    }
+}
+
+if (place_meeting(x, y, obj_enemy) || place_meeting(x, y, obj_enemy2)) {
+    if (!invecible && wait_hurt <= 0) {
+        show_debug_message("Dano");
+
+        if (place_meeting(x, y, obj_enemy)) {
+            if (random(100) < 40) {
+                life -= 10; // Dano do obj_enemy
+                audio_play_sound(snd_hurt, 1, false);
+                
+
+                invecible = true;
+                time_invencible = room_speed * 0.1;
+                
+
+                wait_hurt = room_speed * 0.1;
+            }
+        }
+        
+        if (place_meeting(x, y, obj_enemy2)) {
+            if (random(100) < 40) {
+                life -= 15;
+                audio_play_sound(snd_hurt, 1, false);
+                
+
+                invecible = true;
+                time_invencible = room_speed * 0.1;
+                
+                wait_hurt = room_speed * 0.1; // 0.1 segundos de espera
+            }
+        }
+    }
+}
+
+if(life <=0){
+	room_restart()
+}	
+
+#endregion
