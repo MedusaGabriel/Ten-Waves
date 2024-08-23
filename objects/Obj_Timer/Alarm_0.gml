@@ -1,29 +1,56 @@
 #region INIMIGOS FASE 1
 
-// Contador para o número total de instâncias de inimigos filhos
+var max_inimigos = 500;
 var inimigos_count = 0;
 
-// Loop para contar instâncias de todos os inimigos filhos de obj_InimigosFase1
-for (var i = 0; i < instance_number(obj_enemylevelone); i++) {
-    var obj = instance_find(obj_enemylevelone, i);
-    if (instance_exists(obj)) {
-        // Verifica se a instância é um inimigo filho
-        if (obj.object_index == obj_enemy || obj.object_index == obj_enemy2) {
-            inimigos_count += 1;
-        }
+var enemies = instance_find(obj_enemylevelone, -1);
+for (var i = 0; i < array_length_1d(enemies); i++) {
+    var obj = enemies[i];
+    if (obj.object_index == obj_enemy || obj.object_index == obj_enemy2) {
+        inimigos_count++;
     }
 }
 
-// Verifica se o número total de instâncias de inimigos é menor que 5
-if (inimigos_count < 5) {
-    // Escolhe aleatoriamente um dos inimigos filhos de obj_InimigosFase1
-    var inimigo_aleatorio = choose(obj_enemy, obj_enemy2);  // Adicione mais se necessário
+var num_timers = instance_number(obj_timer);
 
-    // Cria o inimigo escolhido em uma posição aleatória na room
-    instance_create_depth(irandom_range(32, room_width - 32), irandom_range(32, room_height - 32), -1, inimigo_aleatorio);
+var spawn_multiplier = 1;
+var speed_multiplier = 0.5;
+var enemies_left = 50 - global.inimigos_destruidos;
 
-    // Define o alarme para disparar novamente em um intervalo de tempo aleatório entre 60 e 600 frames (1 segundo a 10 segundos)
-    alarm[0] = irandom_range(60, 60 * 10);
+if (enemies_left <= 40) {
+    spawn_multiplier = 2;
+    speed_multiplier = 1;
+}
+if (enemies_left <= 30) {
+    spawn_multiplier = 2.5;
+    speed_multiplier = 1.5;
+}
+if (enemies_left <= 10) {
+    spawn_multiplier = 3;
+    speed_multiplier = 2;
+}
+
+var enemies_speed = 1;
+var adjusted_speed = enemies_speed * speed_multiplier;
+
+// Atualiza a velocidade dos inimigos
+var enemy_instances = instance_find(obj_enemy, -1);
+for (var i = 0; i < array_length_1d(enemy_instances); i++) {
+    enemy_instances[i].speed = adjusted_speed; // Confirme se 'speed' é a propriedade correta
+}
+enemy_instances = instance_find(obj_enemy2, -1);
+for (var i = 0; i < array_length_1d(enemy_instances); i++) {
+    enemy_instances[i].speed = adjusted_speed; // Confirme também para obj_enemy2
+}
+
+// Garante que o número total de inimigos na sala seja menor que o máximo permitido
+if (inimigos_count < max_inimigos) {
+    for (var j = 0; j < num_timers * spawn_multiplier; j++) {
+        var inimigo_aleatorio = choose(obj_enemy, obj_enemy2);
+        instance_create_depth(irandom_range(16, room_width - 32), irandom_range(16, room_height - 32), -1, inimigo_aleatorio);
+    }
+  
+    alarm[0] = irandom_range(room_speed * 5 / spawn_multiplier, room_speed * 20 / spawn_multiplier);
 }
 
 #endregion

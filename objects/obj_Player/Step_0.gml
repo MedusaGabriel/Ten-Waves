@@ -43,7 +43,6 @@ image_yscale = 0.5;
 
 #endregion
 
-
 #region DANO / GAMER OVER
 
 // Reduz o tempo de espera para o próximo dano
@@ -97,5 +96,17 @@ if (place_meeting(x, y, obj_enemy) || place_meeting(x, y, obj_enemy2)) {
 if(life <=0){
 	room_restart()
 }	
+
+#endregion
+
+#region ATIRAR
+
+if(mouse_check_button_pressed(mb_left)){
+	var tiro = instance_create_depth(x,y,1,obj_arrow);
+	tiro.image_angle = point_direction(x,y,mouse_x,mouse_y);
+	tiro.direction = point_direction(x,y,mouse_x,mouse_y);
+	tiro.speed = 7;
+	
+}
 
 #endregion

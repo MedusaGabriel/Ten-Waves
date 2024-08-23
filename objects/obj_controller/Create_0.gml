@@ -1,0 +1,1 @@
+global.inimigos_destruidos = 0;
